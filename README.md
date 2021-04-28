@@ -17,11 +17,11 @@ This is the main repository for [ArkFlame](https://www.arkflame.com)'s frontend.
 
 ### 💻 Run development server
 ```shell
-npm start
+[yarn/npm] start
 ```
 ### 👷‍♂️ Build
 ```shell
-npm run build
+[yarn/npm run] build
 ```
 
 ## 📝 License
