@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "2021.4.28",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.5.2",
