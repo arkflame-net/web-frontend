@@ -40,9 +40,9 @@ export default function StoreDropdown ({environment}) {
                 const categories = props.fetchAllCategories;
                 for (const category of categories) {
                     dropdown.push(
-                        <div className={styles["item"]}>
-                            <Link to={"/store/category/" + category.shrug }>{ category.name }</Link>
-                        </div>
+                        <Link to={"/store/category/" + category.shrug } className={styles["item"]}>
+                            <span>{ category.name }</span>
+                        </Link>
                     )
                 }
 
