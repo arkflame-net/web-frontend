@@ -1,11 +1,4 @@
-import SummaryFullWide from "../components/layout/SummaryFullWide";
-import SummaryDoubles from "../components/layout/SummaryDoubles";
-import SummaryTrio from "../components/layout/SummaryTrio";
-import SummaryDoublesAndBig from "../components/layout/SummaryDoublesAndBig";
 import SummaryBigAndDoubles from "../components/layout/SummaryBigAndDoubles";
-import SummaryBigDoubles from "../components/layout/SummaryBigDoubles";
-
-import Button from "../components/gui/button";
 
 export default function Home (props) {
     return (

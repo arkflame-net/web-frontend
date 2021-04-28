@@ -1,4 +1,4 @@
-import { chakra, Icon, Flex, useColorModeValue } from "@chakra-ui/react";
+import { chakra, Icon, Flex } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import React from "react";
 import styles from "./navbar.module.sass";
@@ -56,23 +56,23 @@ function StoreNavIcons ({amount, href}) {
 }
 
 function NavItem ({ href, children }) {
-  const isCurrent = (href !== "/" &&  currentPath.startsWith(href)) || currentPath == href;
+  const isCurrent = (href !== "/" &&  currentPath.startsWith(href)) || currentPath === href;
   const className = isCurrent ? styles["item-selected"] : styles["item"];
 
   return (
     <Link onClick={()=>{ updateCurrentPath(href) }} to={href} className={className}>
-      <a>{children}</a>
+      <span>{children}</span>
     </Link>
   )
 }
 
 function NavItemDropdown ({ href, dropdown, children }) {
-  const isCurrent = (href !== "/" &&  currentPath.startsWith(href)) || currentPath == href;
+  const isCurrent = (href !== "/" &&  currentPath.startsWith(href)) || currentPath === href;
   const className = isCurrent ? styles["item-selected"] : styles["item"];
 
   return (
     <Link onClick={()=>{ updateCurrentPath(href) }} to={href} className={className}>
-        <a>{children}</a>
+        <span>{children}</span>
         <div className={styles["dropdown-content"]}>
           { dropdown }
         </div>
