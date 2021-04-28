@@ -1,0 +1,130 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AddRoleUserInput {
+  role: String!
+  user: String!
+}
+
+type Category {
+  _id: ID!
+  description: String!
+  name: String!
+  shrug: String!
+}
+
+input CreateCategoryInput {
+  description: String!
+  name: String!
+  shrug: String!
+}
+
+input CreateProductInput {
+  brief: String!
+  category: String!
+  commands: [String!]!
+  description: String!
+  name: String!
+  price: Float!
+}
+
+input CreatePurchaseInput {
+  items: [ItemInput!]!
+  method: String!
+  username: String!
+}
+
+input CreateRoleInput {
+  background: String!
+  color: String!
+  name: String!
+  permissions: [String!]!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input ItemInput {
+  amount: Float!
+  id: String!
+}
+
+type Mutation {
+  addRoleToUser(payload: AddRoleUserInput!): User!
+  confirmPayment(payerID: String!, paymentID: String!): Boolean!
+  createCategory(payload: CreateCategoryInput!): Category!
+  createProduct(payload: CreateProductInput!): Product!
+  createPurchase(payload: CreatePurchaseInput!): Payment!
+  createRole(payload: CreateRoleInput!): Role!
+  createUser(payload: CreateUserInput!): User!
+}
+
+type Payment {
+  _id: ID!
+  method: String!
+  paypalID: String!
+  purchase: Purchase!
+  redirectURL: String!
+}
+
+type Product {
+  _id: ID!
+  category: String!
+  commands: [String!]!
+  description: String!
+  name: String!
+  price: Float!
+}
+
+type Purchase {
+  _createdAt: DateTime!
+  _id: ID!
+  buyer: String!
+  items: [PurchaseItem!]!
+  status: String!
+}
+
+type PurchaseItem {
+  _id: ID!
+  amount: Float!
+  product: Product!
+}
+
+type Query {
+  currentUser: User!
+  fetchAllCategories: [Category!]!
+  fetchAllPurchases: [Purchase!]!
+  fetchAllRoles: [Role!]!
+  fetchCategoryByID(id: String!): Category!
+  fetchCategoryByShrug(shrug: String!): Category!
+  fetchProductsByCategory(category: String!): [Product!]!
+  fetchPurchaseByID(id: String!): Purchase!
+  fetchPurchaseItemByID(id: String!): PurchaseItem!
+  fetchRecentlyPendingPurchases: [Purchase!]!
+  fetchRecentlyPurchases: [Purchase!]!
+}
+
+type Role {
+  _id: ID!
+  background: String!
+  color: String!
+  name: String!
+  permissions: [String!]!
+}
+
+type User {
+  _id: ID!
+  email: String!
+  password: String!
+  roles: [Role!]!
+  username: String!
+}

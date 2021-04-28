@@ -1,0 +1,69 @@
+.navbar
+    border-radius: 14px
+    color: #a7b0c3
+    background: #313742
+    position: sticky
+
+.navbar-content
+    padding: 0px 30px
+    display: inline-flex
+    width: calc(100% - 30px)
+
+.item-list
+    display: inline-flex
+    align-items: center
+
+.item-list-right
+    margin-left: auto
+    display: inline-flex
+    align-items: center
+
+.item-selected,
+.item
+    padding: 15px 20px
+    transition: ease-in-out 0.2s all
+
+.item:hover
+    background-color: #a7b0c3
+    cursor: pointer
+
+.item-selected > a,
+.item > a,
+.item-dropdown > a
+    color: #a7b0c3
+    text-decoration: none
+    font-size: 18px
+    transition: ease-in-out 0.2s all
+    font-family: 'Fredoka One', cursive
+
+.item:hover > a
+    color: #313742
+
+.item-selected
+    background-color: #ff4842
+
+.item-selected > a
+    color: white
+
+.dropdown-content
+    display: none
+    position: absolute
+    background-color: #313742
+    margin-top: 15px
+    min-width: 160px
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+    z-index: 1
+
+.item:hover .dropdown-content,
+.item-selected:hover .dropdown-content
+    display: block
+
+.avatar
+    width: 24px
+    margin-right: 10px
+
+.basket-button
+    transition: ease-in-out 0.2s all
+
+.basket-button:hover
+    color: white
