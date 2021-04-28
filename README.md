@@ -2,7 +2,7 @@
   <img src="https://avatars1.githubusercontent.com/u/47249069?s=280&v=4" height="82px">
 </p>
 
-# arkflame/frontend
+# arkflame/web-frontend
 [![Dev chat](https://discordapp.com/api/guilds/287770195441876992/widget.png?style=shield)](https://discord.gg/f43hmer)
 [![UnderVolt Website Badge](https://img.shields.io/badge/visit%20our-website-red.svg)](https://www.arkflame.com)
 [![GitHub Forks](https://img.shields.io/github/forks/arkflame/web-frontend.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/arkflame/web-frontend/network)
