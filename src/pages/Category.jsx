@@ -86,6 +86,7 @@ export default function Category (props) {
         <div>
             <ProductModal/>
             <CategoryQuery {...props} />
+            <Product name="Rango vip" description="Este vip es muy piola y si lo compras te crece la pija" price={5.25} image="/assets/products/default.jpg"/>
         </div>
     )
 }
