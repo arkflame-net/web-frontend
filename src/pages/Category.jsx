@@ -82,11 +82,19 @@ function CategoryQuery ({environment}) {
 }
 
 export default function Category (props) {
+    const testCategory = {
+        name: "Product Name",
+        brief: "A compact summary about product benefits. This is just a placeholder.",
+        description: "And this is the loooooooooooooooooooooooong Markdown description, IDK.",
+        price: 12.25,
+        image:"/assets/products/default.jpg"
+    }
+
     return (
         <div>
             <ProductModal/>
             <CategoryQuery {...props} />
-            <Product name="Rango vip" description="Este vip es muy piola y si lo compras te crece la pija" price={5.25} image="/assets/products/default.jpg"/>
+            <Product {...testCategory} onClick={() => { openModal(testCategory) }}/>
         </div>
     )
 }

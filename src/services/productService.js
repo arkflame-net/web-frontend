@@ -16,5 +16,4 @@ export const createProduct  = (name, description, brief, category, price, comman
             onError: reject,
         });
     });
-} 
- 
+}

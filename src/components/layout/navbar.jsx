@@ -80,7 +80,7 @@ function NavItemDropdown ({ href, dropdown, children }) {
   )
 }
 
-export default function Navbar ({ user, environment }) {
+export default function Navbar ({ user, environment, basket }) {
   [currentPath, updateCurrentPath] = React.useState(window.location.pathname);
 
   return (
@@ -95,7 +95,7 @@ export default function Navbar ({ user, environment }) {
           </div>
 
           <div className={styles["item-list-right"]}>
-            <StoreNavIcons amount={69} href="/store/basket"/>
+            <StoreNavIcons amount={basket.getItemCount()} href="/store/basket"/>
             <Button><img className={styles["avatar"]} src="/assets/steve.jpg" alt="Default skin head" /> 
               { user == null ? "No estás logeado" : user.username }
             </Button>

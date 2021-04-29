@@ -4,11 +4,11 @@ import React from "react";
 import { chakra, Box, Image, Flex, useColorModeValue } from "@chakra-ui/react";
 import { Skeleton } from "@chakra-ui/react"
 
-export default function Product ({image, name, price, description}) {
-    const isLoading = !name || !price || !description;
+export default function Product ({image, name, price, description, brief, onClick}) {
+    const isLoading = !name || !price || !description || !brief;
     
     return (
-        <div className={styles["product"]}>
+        <div className={styles["product"]} onClick={onClick}>
             <Box
                 maxW="xs"
                 mx="auto"
@@ -32,7 +32,7 @@ export default function Product ({image, name, price, description}) {
                     color={useColorModeValue("gray.600", "gray.400")}
                 >
                     {isLoading && <Skeleton height="10px"/>}
-                    {description}
+                    {brief}
                 </chakra.p>
                 </Box>
                 {
@@ -74,7 +74,6 @@ export default function Product ({image, name, price, description}) {
                         </React.Fragment>
                     )
                 }
-                
                 </Flex>
             </Box>
         </div>
