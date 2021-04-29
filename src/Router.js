@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import Route from './components/utils/SmartRoute';
 
 // Pages
+import Basket from "./pages/Basket.jsx";
 import Category from "./pages/Category.jsx";
 import Community from "./pages/Community.jsx";
 import Home from "./pages/Home.jsx";
@@ -19,15 +20,21 @@ export default function Router (props) {
 
             <Route
                 {...props}
-                path="/store/category"
-                Component={Category}
+                path="/community"
+                exact
+                Component={Community}
             />
 
             <Route
                 {...props}
-                path="/community"
-                exact
-                Component={Community}
+                path="/store/basket"
+                Component={Basket}
+            />
+
+            <Route
+                {...props}
+                path="/store/category"
+                Component={Category}
             />
         </Fragment>
     )

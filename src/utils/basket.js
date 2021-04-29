@@ -6,14 +6,14 @@ export default class Basket {
         this.basket = JSON.parse(raw || "{}");
     }
 
-    public addItem (id, amount) {
+    addItem (id, amount) {
         let item = this.basket[id] || 0;
         item += amount;
         this.basket[id] = item;
         this.saveItems();
     }
 
-    public getItems () {
+    getItems () {
         let keys = Object.keys(this.basket);
         let items = []
         for (let key of keys) {
@@ -25,7 +25,7 @@ export default class Basket {
         return items;
     }
 
-    public getItemCount () {
+    getItemCount () {
         let count = 0;
 
         let items = this.getItems();
@@ -36,11 +36,11 @@ export default class Basket {
         return count;
     }
 
-    public async getTotalPrice () {
+    async getTotalPrice () {
         return await calculateBasketPrice(this.getItems());
     }
 
-    public removeItem (id, amount) {
+    removeItem (id, amount) {
         let item = this.basket[id] || 0;
         item -= amount;
         if (item <= 0) {
@@ -51,8 +51,7 @@ export default class Basket {
         this.saveItems();
     }
 
-
-    public saveItems () {
+    saveItems () {
         const raw = JSON.stringify(this.basket);
         localStorage.setItem("basket", raw);
     }

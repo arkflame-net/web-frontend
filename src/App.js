@@ -2,6 +2,9 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Basket
+import Basket from "./utils/basket";
+
 // Components
 import Layout from "./Layout";
 import LoadingPanel from "./components/layout/LoadingPanel"
@@ -20,6 +23,8 @@ import User from "./utils/UserWrapper";
 const environment = initEnvironment();
 
 function App({ authenticated, checked }) {
+  const basket = new Basket();
+
   if (!checked) {
     return <LoadingPanel/>
   }
@@ -37,12 +42,12 @@ function App({ authenticated, checked }) {
             return <LoadingPanel/>;
         }
 
-        return <Layout user={new User(props.currentUser)} environment={environment} />
+        return <Layout basket={basket} user={new User(props.currentUser)} environment={environment} />
       }}
     />
   }
   
-  return <Layout environment={environment} />
+  return <Layout basket={basket} environment={environment} />
 }
 
 App.propTypes = {
