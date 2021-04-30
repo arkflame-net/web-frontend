@@ -22,7 +22,7 @@
         font-family: 'Poppins', sans-serif !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: url('/assets/background.jpg') fixed !important;
+        background: linear-gradient(to bottom, #14161b, #20242e 200px, #292e39) !important;
         background-repeat: no-repeat !important;
         background-size: cover !important;
         background-position: center !important;
@@ -32,8 +32,28 @@
         opacity: 1;
         animation: rootAnimation .5s;
         width: 90%;
-        margin: 20px auto;
+        max-width: 56%;
+        margin: 0 auto;
       }
+
+      @media only screen and (max-width: 1460px) {
+        #root {
+          max-width: 66%;
+        }
+      }
+
+      @media only screen and (max-width: 1250px) {
+        #root {
+          max-width: 85%;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        #root {
+          max-width: 90%;
+        }
+      }
+
 
       @keyframes rootAnimation {
         0% {
