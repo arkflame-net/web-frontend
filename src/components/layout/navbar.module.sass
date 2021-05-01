@@ -13,11 +13,34 @@
     display: inline-flex
     align-items: center
 
+.hamburger-menu
+    display: none
+
+@media only screen and (max-width: 1100px)
+  .hamburger-menu
+    display: inline-flex
+
+  .item
+    display: none
+
+  .item-selected
+    display: none
+
+  .navbar-content
+    padding: 0px 0px 0px 10px
+  
+  .dropdown-content
+    left: 0
+    margin-top: 50px
+    z-index: 5
+    width: 100%
+
 .item-list-right
     margin-left: auto
     display: inline-flex
     align-items: center
 
+.hamburger-menu,
 .item-selected,
 .item
     padding: 15px 20px
@@ -27,6 +50,7 @@
     background-color: #a7b0c3
     cursor: pointer
 
+.hamburger-menu > span,
 .item-selected > span,
 .item > span
     color: #a7b0c3
@@ -38,21 +62,31 @@
 .item:hover > span
     color: #313742
 
+.hamburger-menu:hover,
 .item-selected
     background-color: #ff4842
 
+.hamburger-menu:hover > span,
 .item-selected > span
     color: white
 
-.dropdown-content
+.hamburger-menu > .dropdown-content,
+.item > .dropdown-content
     display: none
     position: absolute
     background-color: #313742
-    margin-top: 15px
     min-width: 160px
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
-    z-index: 1
+    z-index: 5
 
+.item > .dropdown-content
+    margin-top: 15px
+
+.hamburger-menu > .dropdown-content
+    margin-top: 50px
+    border-radius: 10px
+
+.hamburger-menu:hover .dropdown-content,
 .item:hover .dropdown-content,
 .item-selected:hover .dropdown-content
     display: block
