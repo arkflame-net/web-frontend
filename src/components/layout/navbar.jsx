@@ -2,9 +2,11 @@ import { chakra, Icon, Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import React from "react";
 import styles from "./navbar.module.sass";
+import { AiOutlineMenu } from "react-icons/ai";
 
 import Button from "../gui/button";
 import StoreDropdown from "./StoreDropdown";
+import HamburgerDropdown from "./HamburgerDropdown";
 
 var currentPath, updateCurrentPath;
 
@@ -72,10 +74,14 @@ function NavItem({ href, children }) {
   );
 }
 
-function NavItemDropdown({ href, dropdown, children }) {
+function NavItemDropdown({ href, dropdown, children, hamburger }) {
   const isCurrent =
     (href !== "/" && currentPath.startsWith(href)) || currentPath === href;
-  const className = isCurrent ? styles["item-selected"] : styles["item"];
+  const className = hamburger
+    ? styles["hamburger-menu"]
+    : isCurrent
+    ? styles["item-selected"]
+    : styles["item"];
 
   return (
     <Link
@@ -98,6 +104,13 @@ export default function Navbar({ user, environment, basket }) {
     <div className={styles["navbar"]}>
       <div className={styles["navbar-content"]}>
         <div className={styles["item-list"]}>
+          <NavItemDropdown
+            hamburger={true}
+            href="#"
+            dropdown={<HamburgerDropdown />}
+          >
+            <AiOutlineMenu size={25} />
+          </NavItemDropdown>
           <NavItem href="/">Inicio</NavItem>
           <NavItem href="/community">Comunidad</NavItem>
           <NavItem href="/stats">Estadisticas</NavItem>
