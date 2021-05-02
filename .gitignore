@@ -4,6 +4,7 @@
 lazygit.exe
 package-lock.json
 yarn.lock
+.vscode
 
 # dependencies
 /node_modules
