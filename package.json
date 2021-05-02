@@ -28,6 +28,10 @@
     "sass": "^1.32.11",
     "web-vitals": "^1.0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/arkflame/web-frontend.git"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
