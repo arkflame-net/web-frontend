@@ -7,6 +7,7 @@ import Basket from "./pages/Basket.jsx";
 import Category from "./pages/Category.jsx";
 import Community from "./pages/Community.jsx";
 import Home from "./pages/Home.jsx";
+import NewsPost from './pages/NewsPost.jsx'
 
 export default function Router (props) {
     return (
@@ -35,6 +36,12 @@ export default function Router (props) {
                 {...props}
                 path="/store/category"
                 Component={Category}
+            />
+
+            <Route
+                {...props}
+                path="/news"
+                Component={NewsPost}
             />
         </Fragment>
     )
