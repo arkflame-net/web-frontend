@@ -5,18 +5,22 @@ import Navbar from "./components/layout/navbar";
 import Sidebar from "./components/layout/sidebar";
 
 import "./style.sass";
+import Footer from './components/layout/Footer';
 
 export default function Layout (props) {
     return (
         <BrowserRouter>
             <Hero />
-            <Navbar {...props} />
-            <div className="container">
-                <div className="content">
-                    <Router {...props} />
+            <div className="view-model">
+                <Navbar {...props} />
+                <div className="container">
+                    <div className="content">
+                        <Router {...props} />
+                    </div>
+                    <Sidebar />
                 </div>
-                <Sidebar />
             </div>
+            <Footer />
         </BrowserRouter>
     )
 }
