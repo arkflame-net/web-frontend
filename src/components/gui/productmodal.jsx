@@ -21,7 +21,7 @@ export function openModal (product) {
 export function ProductModal (props) {
     const disclosure = useDisclosure();
     [currentProduct, updateProduct] = React.useState({});
-    basket = props.basket;
+    //basket = props.basket;
     isOpen = disclosure.isOpen;
     onOpen = disclosure.onOpen;
     onClose = disclosure.onClose;
