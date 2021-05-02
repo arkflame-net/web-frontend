@@ -1,0 +1,15 @@
+{
+    "short_name": "ArkFlame",
+    "name": "ArkFlame Network - Servidor de Minecraft hispano",
+    "icons": [
+      {
+        "src": "public/assets/favicon.png",
+        "sizes": "500x500",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#ff4842",
+    "background_color": "#313742"
+  }
