@@ -1,0 +1,55 @@
+.post {
+    background-color: #313742;
+    color: white;
+    border-radius: 10px;
+}
+
+.post .header {
+    background-color: #2d313a;
+    padding: 15px 40px;
+    border-radius: 10px 10px 0px 0px;   
+}
+
+.post .header .link {
+    color: #ffc44d;
+}
+
+.post .banner {
+    height: 150px;
+    background-color: rgba(28,31,37,.7);
+    background-position: center;
+}
+
+.post .banner .banner-content {
+    background-color: rgba(28,31,37,.7);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.post .banner .banner-content .post-title {
+    font-size: 45px;
+    margin: 20px;
+}
+
+.post .banner .banner-content .post-author {
+    font-size: 18px;
+    margin: 20px;
+}
+
+.post .banner .banner-content .post-author a {
+    text-decoration: underline;
+}
+
+.post .post-content {
+    margin: 30px;
+    padding-bottom: 20px;
+}
+
+.post .post-content p {
+    padding-bottom: 10px;
+}
+
+.post .post-content a {
+    color: #ff7d79
+}
