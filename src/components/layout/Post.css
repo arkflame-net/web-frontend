@@ -108,3 +108,7 @@
 .post .post-content h3 {
     font-size: 24px;
 }
+
+.post .post-content img {
+    margin: 0 auto;
+}
