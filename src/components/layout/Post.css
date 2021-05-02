@@ -7,7 +7,8 @@
 .post .header {
     background-color: #2d313a;
     padding: 15px 40px;
-    border-radius: 10px 10px 0px 0px;   
+    border-radius: 10px 10px 0px 0px; 
+    user-select: none;  
 }
 
 .post .header .link {
