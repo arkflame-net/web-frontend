@@ -1,18 +1,8 @@
 import React from "react";
 import {
   chakra,
-  Box,
   Flex,
-  useColorModeValue,
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
   Button,
-  useBreakpointValue,
   Stack,
   SimpleGrid,
 } from "@chakra-ui/react";

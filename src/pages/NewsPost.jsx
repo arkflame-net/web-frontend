@@ -1,8 +1,5 @@
 import React from 'react'
 import Post from '../components/layout/Post';
-import marked from 'marked'
-import parseMD from 'parse-md'
-import Link from 'react-dom'
 
 const importAll = (r) => r.keys().map(r);
 const postFiles = importAll(require.context('../content/', true, /\.md$/)).sort().reverse();

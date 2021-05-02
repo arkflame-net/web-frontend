@@ -11,7 +11,7 @@ import {
   useDisclosure
 } from "@chakra-ui/react"
 
-var isOpen, onOpen, onClose, basket, currentProduct, updateProduct;
+var isOpen, onOpen, onClose, currentProduct, updateProduct;
 
 export function openModal (product) {
     updateProduct(product);

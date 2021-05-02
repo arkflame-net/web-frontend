@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "../components/layout/product";
-import { Skeleton } from "@chakra-ui/react"
 import { QueryRenderer } from 'react-relay';
 import { ProductModal, openModal } from "../components/gui/productmodal";
 import { fetchProductsByCategoryQuery, fetchCategoryByShrugQuery } from "../graphql";
