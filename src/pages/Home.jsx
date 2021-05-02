@@ -1,43 +1,46 @@
-import SummaryFullWide from "../components/layout/SummaryFullWide";
-import SummaryDoubles from "../components/layout/SummaryDoubles";
-import SummaryTrio from "../components/layout/SummaryTrio";
-import SummaryDoublesAndBig from "../components/layout/SummaryDoublesAndBig";
-import SummaryBigAndDoubles from "../components/layout/SummaryBigAndDoubles";
-import SummaryBigDoubles from "../components/layout/SummaryBigDoubles";
+import React from 'react'
+import { Link } from 'react-router-dom';
+import SummaryFullWide from '../components/layout/SummaryFullWide'
+import parseMD from 'parse-md'
 
-import Button from "../components/gui/button";
+const importAll = (r) => r.keys().map(r);
+const postFiles = importAll(require.context('../content/', true, /\.md$/)).sort().reverse();
 
-export default function Home(props) {
-  return (
-    <div>
-      <SummaryFullWide
-        title="ArkFlame Network"
-        subtitle="¡Bienvenido a nuestro Servidor! Disfruta en cualquiera de tus versiones favoritas (1.7.x - 1.17.x)"
-      />
+export default class Home extends React.Component {
 
-      <SummaryDoubles
-        left={{ title: "Left", subtitle: "LOL" }}
-        right={{ title: "Right", subtitle: "LOL but right side" }}
-      />
-      <SummaryTrio
-        left={{ title: "Left", subtitle: "LOL" }}
-        middle={{ title: "I'm centered", subtitle: "Yup" }}
-        right={{ title: "Right", subtitle: "LOL but right side" }}
-      />
-      <SummaryDoublesAndBig
-        right={{ title: "Right", subtitle: "LOL" }}
-        up={{ title: "UP", subtitle: "Yup" }}
-        down={{ title: "DOWN", subtitle: "LOL but bottom side" }}
-      />
-      <SummaryBigAndDoubles
-        left={{ title: "Left", subtitle: "LOL" }}
-        up={{ title: "UP", subtitle: "Yup" }}
-        down={{ title: "DOWN", subtitle: "LOL but bottom side" }}
-      />
-      <SummaryBigDoubles
-        left={{ title: "Left", subtitle: "LOL" }}
-        right={{ title: "Right", subtitle: "LOL but right side" }}
-      />
-    </div>
-  );
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      posts: []
+    }
+  } 
+
+  async componentDidMount() {
+    const posts = await Promise.all(postFiles.map((file) => fetch(file.default).then((res) => res.text())))
+      .catch((err) => console.error(err));
+
+    this.setState((state) => ({ ...state, posts }));
+  }
+
+  render() {
+    
+    if(this.state)
+      return (
+        <div>
+          {
+              this.state.posts.map((post, key) => (
+                <Link to={"/news/" + parseMD(post).metadata.id}>
+                  <SummaryFullWide
+                    title={parseMD(post).metadata.title}
+                    subtitle={`Escrito por ${parseMD(post).metadata.author}`}
+                    image={parseMD(post).metadata.banner}
+                  />
+                </Link>
+              ))
+          }
+        </div>
+      )
+    else return <div style={{color: "white"}}>Cargando...</div>
+  }
 }
