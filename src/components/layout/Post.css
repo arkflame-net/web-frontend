@@ -37,6 +37,38 @@
     margin: 20px;
 }
 
+@media only screen and (max-width: 800px) {
+    .post .banner {
+        height: 120px;
+    }
+
+    .post .banner .banner-content .post-title {
+        font-size: 30px;
+        margin: 15px;
+    }
+    
+    .post .banner .banner-content .post-author {
+        font-size: 13px;
+        margin: 15px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .post .banner {
+        height: 100px;
+    }
+
+    .post .banner .banner-content .post-title {
+        font-size: 27px;
+        margin: 12px;
+    }
+    
+    .post .banner .banner-content .post-author {
+        font-size: 11px;
+        margin: 12px;
+    }
+}
+
 .post .banner .banner-content .post-author a {
     text-decoration: underline;
 }
@@ -52,4 +84,26 @@
 
 .post .post-content a {
     color: #ff7d79
+}
+
+.post .post-content ul {
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+
+.post .post-content hr {
+    color: #a7b0c3;
+    margin: 15px 0px;
+}
+
+.post .post-content h1 {
+    font-size: 38px;
+}
+
+.post .post-content h2 {
+    font-size: 31px;
+}
+
+.post .post-content h3 {
+    font-size: 24px;
 }
