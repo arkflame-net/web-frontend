@@ -9,6 +9,7 @@ import Community from "./pages/Community.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login";
 import NewsPost from './pages/NewsPost.jsx'
+import Register from "./pages/Register";
 import Rules from "./pages/Rules";
 
 export default function Router (props) {
@@ -58,6 +59,13 @@ export default function Router (props) {
                 exact
                 path="/login"
                 Component={Login}
+            />
+
+            <Route
+                {...props}
+                exact
+                path="/register"
+                Component={Register}
             />
         </Fragment>
     )
