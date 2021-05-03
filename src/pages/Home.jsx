@@ -33,6 +33,7 @@ export default class Home extends React.Component {
           <SummaryFullMedium
             title={"¿Aquí para jugar Minecraft?"}
             subtitle={"¡Únete y comienza a jugar en nuestro servidor!"}
+            image={"/assets/bg2.jpg"}
           />
           <Container
             id={"news"}
