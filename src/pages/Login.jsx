@@ -24,6 +24,11 @@ export default class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentDidMount() {
+        if(this.props.user)
+            this.props.history.push('/')
+    }
+
     loginWithCredentials(email, password) {
         login({email: email, password: password}, this.props.history).then(() => {
             this.displayMessage({
