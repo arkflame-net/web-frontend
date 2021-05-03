@@ -35,8 +35,8 @@ export default class Home extends React.Component {
             subtitle={"¡Únete y comienza a jugar en nuestro servidor!"}
           />
           <Container
-            name={{text: "Noticias", link: "#"}}
-            header={[" Inicio > ", <a href="#">{"Noticias"}</a>]}
+            id={"news"}
+            header={[" Inicio > ", <a href="#news">{"Noticias"}</a>]}
           >
             {
                 this.state.posts.map((post, key) => (
