@@ -2,7 +2,7 @@
 id: 2021-05-01-hello-world
 title: 👋 ¡Hola mundo!
 author: Gerar
-date: 2021-05-1 22:00:00 -0300
+date: 2021-05-01 22:00:00
 tags: servidor, web
 banner: https://cdn.discordapp.com/splashes/287770195441876992/9a9f0388cf201c69487d933dffd69890.jpg?size=2048
 ---
