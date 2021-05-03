@@ -1,0 +1,41 @@
+.rule-item {
+  margin: 10px 20px;
+  font-size: 18px;
+}
+
+.rule-level {
+  color: #333;
+  font-size: 17px;
+}
+
+.rules {
+  text-align: left;
+}
+
+.rl-muy-baja {
+  color: #0F0;
+}
+
+.rl-baja {
+  color: #8F0;
+}
+
+.rl-media-baja {
+  color: rgb(216, 216, 38);
+}
+
+.rl-media {
+  color: #FA0;
+}
+
+.rl-media-alta {
+  color: #F70;
+}
+
+.rl-alta {
+  color: #F40;
+}
+
+.rl-maxima {
+  color: #F00;
+}
