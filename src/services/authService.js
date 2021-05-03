@@ -33,7 +33,7 @@ export const login = (email, password) => {
         if (request.status !== 200 && request.status !== 201) {
             const error =
                 data.message === 'Unauthorized'
-                    ? 'Invalid login credentials'
+                    ? 'Credenciales incorrectas. (¡Recuerda que lAs MaYuScUlAs AfEcTaN!)'
                     : data.message;
             reject(error);
         } else {
