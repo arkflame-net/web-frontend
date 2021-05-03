@@ -138,7 +138,7 @@ export default function Navbar({ user, environment, basket }) {
                 src="/assets/steve.jpg"
                 alt="Default skin head"
               />
-              {user == null ? "No estás logeado" : user.unwrappedUser.username}
+              {user == null ? "Iniciar sesión" : user.unwrappedUser.username}
             </Button>
           </Link>
         </div>
