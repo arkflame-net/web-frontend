@@ -4,13 +4,13 @@ import './Container.css'
 
 export default class Container extends React.Component {
     render() {
-        const { id, header } = this.props
+        const { id, style, header } = this.props
         return (
             <div className="cont" id={id}>
                 <div className="header">
                     {header}
                 </div>
-                <div className="cont-content">
+                <div style={style} className="cont-content">
                     {this.props.children}
                 </div>
             </div>
