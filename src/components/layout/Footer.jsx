@@ -28,7 +28,7 @@ export default class Footer extends React.Component {
                                 <li><a href={"https://status.arkflame.com"}>Estado del servidor</a></li>
                                 <li><a href={"https://github.com/arkflame"}>Código fuente</a></li>
                                 <li><Link to={"/store"}>Tienda</Link></li>
-                                <li style={{marginBottom: "10px"}}><Link to={"/reglas"}>Reglas</Link></li>
+                                <li style={{marginBottom: "10px"}}><Link to={"/rules"}>Reglas</Link></li>
                             </ul>
                         </p>
                     </div>
