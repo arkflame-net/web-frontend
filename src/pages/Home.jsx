@@ -30,6 +30,10 @@ export default class Home extends React.Component {
     if(this.state)
       return (
         <div>
+          <SummaryFullMedium
+            title={"¿Aquí para jugar Minecraft?"}
+            subtitle={"¡Únete y comienza a jugar en nuestro servidor!"}
+          />
           <Container
             name={{text: "Noticias", link: "#"}}
             header={[" Inicio > ", <a href="#">{"Noticias"}</a>]}
