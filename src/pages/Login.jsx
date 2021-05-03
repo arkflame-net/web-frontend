@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Container from "../components/layout/Container";
 import SummaryFullWide from "../components/layout/SummaryFullWide";
 
-import { login } from '../services/authService'
+import { login } from '../redux/actions'
 
 import './Login.css'
 
@@ -25,15 +25,12 @@ export default class Login extends React.Component {
     }
 
     loginWithCredentials(email, password) {
-        login(email, password).then(user => {
-            console.log(user)
+        login(email, password).then(() => {
             this.displayMessage({
                 type: "success",
                 message: "Iniciada la sesión! Redirigiendo..."
-            })
-            setTimeout(()=> {
-                window.location.pathname = "/"
-            }, 2000)
+            })  
+            window.location.pathname = "/"
         })
         .catch(error => {
             this.displayMessage({
@@ -59,7 +56,7 @@ export default class Login extends React.Component {
     handleSubmit(event) {
         event.preventDefault()
         if(this.state.emailField && this.state.passwordField) {
-            this.loginWithCredentials()
+            this.loginWithCredentials(this.state.emailField, this.state.passwordField)
             console.log('Attemping login...')
         } else {
             this.displayMessage({ type: "error", message: "Completa todos los campos para iniciar sesión." })
