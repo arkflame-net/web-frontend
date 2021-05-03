@@ -3,6 +3,7 @@ import parseMD from 'parse-md'
 import marked from 'marked'
 
 import './Post.css'
+import { Link } from 'react-router-dom'
 
 export default class Post extends React.Component {
     render() {
@@ -13,7 +14,7 @@ export default class Post extends React.Component {
             return (
                 <div className="post">
                     <div className="header">
-                        <a className="link" href="/">Inicio</a> {"> "} <a href="/">{parsedContent.metadata.title}</a>
+                        <Link className="link" to="/">Inicio</Link> {"> "} <Link to={"/news/" + parsedContent.metadata.id}>{parsedContent.metadata.title}</Link>
                     </div>
                     <div className="banner" style={{backgroundImage: `url(${parsedContent.metadata.banner})`}}>
                         <div className="banner-content">
