@@ -1,13 +1,18 @@
-import SummaryBigAndDoubles from "../components/layout/SummaryBigAndDoubles";
+import Container from "../components/layout/Container";
+import SummaryDoubles from "../components/layout/SummaryDoubles";
 
-export default function Home (props) {
-    return (
-        <div>
-            <SummaryBigAndDoubles
-                left={{ title: "Nuestra comunidad", subtitle: "Si quieres hablar con otros jugadores o conocer nuevos amigos puedes unirte a nuestra comunidad, al igual que seguirnos en nuestras redes sociales para estar al tanto de las últimas noticias y actualizaciones"  }}
-                up={{ image: "/assets/panels/discord.jpg", title: "Discord" }}
-                down={{ image: "/assets/panels/twitter.jpg", title: "Twitter" }}
-            />
-        </div>
-    )
-} 
+export default function Community(props) {
+  return (
+    <div>
+      <Container
+        id="links"
+        header={["Comunidad > ", <a href="#links">{"Links útiles"}</a>]}
+      >
+        <SummaryDoubles
+          left={{ image: "/assets/panels/discord.jpg", title: "Discord" }}
+          right={{ image: "/assets/panels/twitter.jpg", title: "Twitter" }}
+        />
+      </Container>
+    </div>
+  );
+}
