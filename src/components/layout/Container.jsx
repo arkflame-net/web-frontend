@@ -4,9 +4,9 @@ import './Container.css'
 
 export default class Container extends React.Component {
     render() {
-        const { header } = this.props
+        const { id, header } = this.props
         return (
-            <div className="cont">
+            <div className="cont" id={id}>
                 <div className="header">
                     {header}
                 </div>
