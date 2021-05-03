@@ -25,7 +25,7 @@ export default class Login extends React.Component {
     }
 
     loginWithCredentials(email, password) {
-        login(email, password).then(() => {
+        login({email: email, password: password}, this.props.history).then(() => {
             this.displayMessage({
                 type: "success",
                 message: "Iniciada la sesión! Redirigiendo..."
