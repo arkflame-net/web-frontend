@@ -7,6 +7,7 @@ import Basket from "./pages/Basket.jsx";
 import Category from "./pages/Category.jsx";
 import Community from "./pages/Community.jsx";
 import Home from "./pages/Home.jsx";
+import Login from "./pages/Login";
 import NewsPost from './pages/NewsPost.jsx'
 import Rules from "./pages/Rules";
 
@@ -50,6 +51,13 @@ export default function Router (props) {
                 exact
                 path="/rules"
                 Component={Rules}
+            />
+
+            <Route
+                {...props}
+                exact
+                path="/login"
+                Component={Login}
             />
         </Fragment>
     )
