@@ -25,21 +25,20 @@ export default class Login extends React.Component {
     }
 
     loginWithCredentials(email, password) {
-        return new Promise((res, rej) => {
-            login(email, password).then(user => {
-                this.displayMessage({
-                    type: "success",
-                    message: "Iniciada la sesión! Redirigiendo..."
-                })
-                setTimeout(()=> {
-                    window.location.pathname = "/"
-                }, 2000)
+        login(email, password).then(user => {
+            console.log(user)
+            this.displayMessage({
+                type: "success",
+                message: "Iniciada la sesión! Redirigiendo..."
             })
-            .catch(error => {
-                this.displayMessage({
-                    type: "error",
-                    message: error
-                })
+            setTimeout(()=> {
+                window.location.pathname = "/"
+            }, 2000)
+        })
+        .catch(error => {
+            this.displayMessage({
+                type: "error",
+                message: error
             })
         })
     }
