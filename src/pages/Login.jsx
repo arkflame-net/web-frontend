@@ -77,7 +77,7 @@ export default class Login extends React.Component {
         return(
             <div>
                 <div className="error" style={{textAlign: "center", margin: "0px 0px 30px 0px"}}>
-                    <b>¡NO INICIES SESIÓN CON LOS DATOS DEL SERVIDOR! ¡LAS CUENTAS DEL SITIO DEBEN SER REGISTRADAS DESDE CERO!</b>
+                    <b>¡NO INICIES SESIÓN CON LOS DATOS DEL SERVIDOR! ¡LAS CUENTAS DEL SITIO DEBEN SER <Link style={{textDecoration: "underline"}} to="/register">REGISTRADAS DESDE CERO!</Link></b>
                 </div>
                 <Container
                     style={{textAlign: "center"}}
