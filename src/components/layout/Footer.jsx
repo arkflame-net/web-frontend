@@ -16,7 +16,7 @@ export default class Footer extends React.Component {
                         </p>
                         <p>
                             <div style={{marginBottom: "10px"}}><span className="footer-title">Acerca de:</span></div>
-                            <div style={{marginBottom: "10px", maxWidth: "400px"}}><b>ArkFlame Network</b> es un servidor de Minecraft <b>no premium</b> hispano con multiples modalidades para disfrutar solo o con amigos.</div>
+                            <div style={{marginBottom: "10px", maxWidth: "400px"}}><b>ArkFlame Network</b> es un servidor de Minecraft hispano con multiples modalidades para disfrutar solo o con amigos.</div>
                             <div style={{maxWidth: "400px"}}>Disponible para Java Edition en todas las versiones <b>desde 1.7 en adelante.</b></div>
                         </p>
                     </div>
