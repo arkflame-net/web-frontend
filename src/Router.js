@@ -8,6 +8,7 @@ import Category from "./pages/Category.jsx";
 import Community from "./pages/Community.jsx";
 import Home from "./pages/Home.jsx";
 import NewsPost from './pages/NewsPost.jsx'
+import Rules from "./pages/Rules";
 
 export default function Router (props) {
     return (
@@ -42,6 +43,13 @@ export default function Router (props) {
                 {...props}
                 path="/news"
                 Component={NewsPost}
+            />
+            
+            <Route
+                {...props}
+                exact
+                path="/rules"
+                Component={Rules}
             />
         </Fragment>
     )

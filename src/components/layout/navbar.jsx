@@ -114,7 +114,7 @@ export default function Navbar({ user, environment, basket }) {
           <NavItem href="/">Inicio</NavItem>
           <NavItem href="/community">Comunidad</NavItem>
           <NavItem href="/stats">Estadisticas</NavItem>
-          <NavItem href="/punishments">Sanciones</NavItem>
+          <NavItem href="/rules">Reglas</NavItem>
           <NavItemDropdown
             href="/store"
             dropdown={<StoreDropdown environment={environment} />}
