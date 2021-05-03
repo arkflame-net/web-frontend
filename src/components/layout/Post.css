@@ -1,11 +1,11 @@
 .post {
-    background-color: #313742;
+    background-color: #2d313a;
     color: white;
     border-radius: 10px;
 }
 
 .post .header {
-    background-color: #2d313a;
+    background-color: #313742;
     padding: 15px 40px;
     border-radius: 10px 10px 0px 0px; 
     user-select: none;  
