@@ -3,7 +3,7 @@ import { sessionService } from 'redux-react-session';
 import * as sessionApi from '../services/authService';
 
 export const login = (payload, history) => {
-    return sessionApi.login(payload).then((response) => {
+    return sessionApi.login(payload.email, payload.password).then((response) => {
         const { access_token } = response;
         sessionService.saveSession({ token: access_token }).then(() => {
             sessionService.saveUser(response.user).then(() => {
