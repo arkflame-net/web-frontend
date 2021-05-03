@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
                 <div style={{minHeight: "auto"}} className="view-model footer-content">
                     <div className="footer-column">
                         <p>
-                            <img src="/assets/favicon.png" alt="ArkFlame Logo" style={{marginLeft: "-8px", width:"70px"}} />
+                            <img src="/assets/favicon.png" draggable="false" alt="ArkFlame Logo" style={{marginLeft: "-8px", width:"70px"}} />
                         </p>
                         <p>
                             <div style={{marginBottom: "10px"}}><span className="footer-title">Acerca de:</span></div>
