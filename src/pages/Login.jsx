@@ -80,6 +80,9 @@ export default class Login extends React.Component {
     render() {
         return(
             <div>
+                <div className="error" style={{textAlign: "center", margin: "0px 0px 30px 0px"}}>
+                    <b>¡NO INICIES SESIÓN CON LOS DATOS DEL SERVIDOR! ¡LAS CUENTAS DEL SITIO DEBEN SER REGISTRADAS DESDE CERO!</b>
+                </div>
                 <Container
                     style={{textAlign: "center"}}
                     id={"news"}
@@ -107,19 +110,21 @@ export default class Login extends React.Component {
                         /></p>
                     </form>
                 </Container>
-                <SummaryFullWide
-                    image={"/assets/bg1.jpg"}
-                    title={"¿No tienes cuenta?"}
-                    subtitle={"¡Crea una para comenzar a disfrutar de los beneficios del servidor!"}
-                >
-                    <Button
-                        style={{
-                            background: "#ffc44d",
-                            color: "#000000",
-                            marginTop: "20px"
-                        }}
-                    >¡Regístrate!</Button>
-                </SummaryFullWide>
+                <Link to="/register">
+                    <SummaryFullWide
+                        image={"/assets/bg1.jpg"}
+                        title={"¿No tienes cuenta?"}
+                        subtitle={"¡Crea una para comenzar a disfrutar de los beneficios del servidor!"}
+                    >
+                        <Button
+                            style={{
+                                background: "#ffc44d",
+                                color: "#000000",
+                                marginTop: "20px"
+                            }}
+                        >¡Regístrate!</Button>
+                    </SummaryFullWide>
+                </Link>
             </div>
         )
     }   
