@@ -1,0 +1,56 @@
+@font-face {
+    font-family: mc;
+    src: url('../components/fonts/mc.woff2');
+    font-display: swap
+}
+
+.community-title {
+  font-family: mc;
+  font-size: 25px;
+  margin-bottom: 45px
+}
+
+.join-placeholder {
+    padding: 50px;
+    margin: 0px 8px 10px 8px;
+    border: 2px solid #313742;
+    border-radius: 10px;
+    user-select: none;
+    text-align: center;
+}
+
+.mc-button {
+    font-family: mc;
+    width: 400px;
+    height: 40px;
+    margin: auto;
+    color: #fff;
+    text-align: center;
+    line-height: 43px;
+    font-size: 14px;
+    font-weight: 400;
+    text-shadow: 2px 2px 0 #383838;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.mc-button:hover {
+    background-position-y: 40px;
+    color: rgb(247, 255, 133);
+}
+
+.join-ip {
+    font-family: mc;
+    position: relative;
+    width: 368px;
+    height: 40px;
+    padding: 0 14px;
+    margin: auto;
+    margin-bottom: 30px;
+    border: 2px solid #a0a0a0;
+    background: #000;
+    font-size: 15px;
+    color: #fff;
+    line-height: 42px;
+}
+
