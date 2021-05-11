@@ -113,7 +113,6 @@ export default function Navbar({ user, environment, basket }) {
           </NavItemDropdown>
           <NavItem href="/">Inicio</NavItem>
           <NavItem href="/community">Comunidad</NavItem>
-          <NavItem href="/stats">Estadisticas</NavItem>
           <NavItem href="/rules">Reglas</NavItem>
           <NavItemDropdown
             href="/store"
