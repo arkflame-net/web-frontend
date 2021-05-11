@@ -1,0 +1,49 @@
+.user-card {
+  padding: 10px;
+  background: #ffc44d;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.user-data {
+  list-style: none
+}
+
+.user-render {
+  height: 90px
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 20px
+}
+
+.user-rank {
+  font-weight: 500;
+  font-size: 13px;
+  background: #999;
+  color: #fff;
+  padding: 3px 6px;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+.admin {
+  background: #ff4842
+}
+
+.mod {
+  background: #ff8833
+}
+
+.helper {
+  background: #198595
+}
+
+.owner {
+  background: #af1616
+}
