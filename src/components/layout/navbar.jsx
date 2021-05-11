@@ -125,26 +125,24 @@ export default function Navbar({ user, environment, basket }) {
 
         <div className={styles["item-list-right"]}>
           <StoreNavIcons amount={basket.getItemCount()} href="/store/basket" />
-          {user == null ? (
-            <Link to="/login">
-              <Button
-                style={{
-                  borderRadius: "10px",
-                  color: "#000",
-                  background: "rgb(255, 196, 77)",
-                }}
-              >
-                <img
-                  className={styles["avatar"]}
-                  src="/assets/steve.jpg"
-                  alt="Default skin head"
-                />
-                Iniciar sesión
-              </Button>
-            </Link>
-          ) : (
-            ""
-          )}
+          <Link to="/login">
+            <Button
+              className={styles["login-button"]}
+              style={{
+                borderRadius: "10px",
+                color: "#000",
+                background: "rgb(255, 196, 77)",
+                display: user == null ? "inline-flex" : "none",
+              }}
+            >
+              <img
+                className={styles["avatar"]}
+                src="/assets/steve.jpg"
+                alt="Default skin head"
+              />
+              {user == null ? "Iniciar sesión" : user.unwrappedUser.username}
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
