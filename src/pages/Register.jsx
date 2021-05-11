@@ -32,8 +32,10 @@ export default class Register extends React.Component {
   }
 
   parseResponse(response) {
-    let split = response.split(":")[1].split("See")[0];
-    return split.charAt(1).toUpperCase() + split.slice(2);
+    if (response.includes("createUserMutation")) {
+      let split = response.split(":")[1].split("See")[0];
+      return split.charAt(1).toUpperCase() + split.slice(2);
+    } else return response;
   }
 
   registerWithCredentials(user, email, password) {
