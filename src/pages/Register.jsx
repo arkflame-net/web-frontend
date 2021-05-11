@@ -31,6 +31,11 @@ export default class Register extends React.Component {
     if (this.props.user) this.props.history.push("/");
   }
 
+  parseResponse(response) {
+    let split = response.split(":")[1].split("See")[0];
+    return split.charAt(1).toUpperCase() + split.slice(2);
+  }
+
   registerWithCredentials(user, email, password) {
     register(email, password, user)
       .then(() => {
@@ -45,7 +50,7 @@ export default class Register extends React.Component {
       .catch((error) => {
         this.displayMessage({
           type: "error",
-          message: error.message,
+          message: this.parseResponse(error.message),
         });
       });
   }
@@ -187,4 +192,3 @@ export default class Register extends React.Component {
     );
   }
 }
-
