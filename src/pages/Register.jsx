@@ -86,7 +86,7 @@ export default class Register extends React.Component {
       this.state.passwordDupField &&
       this.state.userField
     ) {
-      if (this.state.passwordDupField == this.state.passwordField) {
+      if (this.state.passwordDupField === this.state.passwordField) {
         this.registerWithCredentials(
           this.state.userField,
           this.state.emailField,
