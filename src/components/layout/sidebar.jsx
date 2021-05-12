@@ -10,8 +10,7 @@ export default function Sidebar({ user }) {
           src="https://discord.com/widget?id=287770195441876992&theme=dark"
           allowtransparency="true"
           frameborder="0"
-          width="260"
-          height="240"
+          height="400"
           title="Discord"
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
         ></iframe>
@@ -19,4 +18,3 @@ export default function Sidebar({ user }) {
     </div>
   );
 }
-
