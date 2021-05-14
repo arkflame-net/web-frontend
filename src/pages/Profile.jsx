@@ -7,14 +7,14 @@ export default class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      reqName: null,
       userData: null,
     };
   }
 
   componentDidMount() {
-    fetch(
-      "https://api.arkflame.com/user/" + window.location.pathname.split("/")[2]
-    ).then((r) =>
+    this.setState({ reqName: window.location.pathname.split("/")[2] });
+    fetch("https://api.arkflame.com/user/" + this.state.reqName).then((r) =>
       r.json().then((response) => {
         this.setState({ userData: response });
       })
@@ -29,14 +29,14 @@ export default class Profile extends React.Component {
           style={{ background: 'url("/assets/bg2.jpg")' }}
         >
           <span className="admin tag">ADMIN</span>
-          Gerar
+          {this.state.reqName}
         </div>
         <div className="user-container">
           <div className="user-row">
             <img
               className="user-body"
               alt="Usuario"
-              src="https://minotar.net/armor/body/Grdx/500.png"
+              src={`https://minotar.net/armor/body/${this.state.reqName}/500.png`}
             />
             <div
               className="user-body"
@@ -48,7 +48,11 @@ export default class Profile extends React.Component {
           <div className="container-row">
             <Container
               id={"stats"}
-              header={["Gerar > ", <a href="#stats">Estadísticas</a>]}
+              header={[
+                this.state.reqName,
+                " > ",
+                <a href="#stats">Estadísticas</a>,
+              ]}
             >
               <SummaryTrio
                 left={{ title: "SkyWars" }}
@@ -58,13 +62,21 @@ export default class Profile extends React.Component {
             </Container>
             <Container
               id={"info"}
-              header={["Gerar > ", <a href="#info">Información del jugador</a>]}
+              header={[
+                this.state.reqName,
+                " > ",
+                <a href="#info">Información del jugador</a>,
+              ]}
             >
               Esta es una descripción
             </Container>
             <Container
               id={"comments"}
-              header={["Gerar > ", <a href="#comments">Comentarios</a>]}
+              header={[
+                this.state.reqName,
+                " > ",
+                <a href="#comments">Comentarios</a>,
+              ]}
             >
               No hay comentarios
             </Container>
