@@ -136,7 +136,11 @@ export default function Navbar({ user, environment, basket }) {
             >
               <img
                 className={styles["avatar"]}
-                src="/assets/steve.jpg"
+                src={
+                  user == null
+                    ? "/assets/steve.jpg"
+                    : `https://minotar.net/helm/${user.unwrappedUser.username}/100.png`
+                }
                 alt="Default skin head"
               />
               {user == null ? "Iniciar sesión" : user.unwrappedUser.username}
