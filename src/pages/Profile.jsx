@@ -28,7 +28,7 @@ export default class Profile extends React.Component {
           className="user-username"
           style={{ background: 'url("/assets/bg2.jpg")' }}
         >
-          <span className="admin tag">ADMIN</span>
+          <span className="undefined tag">DEFAULT</span>
           {this.state.reqName}
         </div>
         <div className="user-container">
