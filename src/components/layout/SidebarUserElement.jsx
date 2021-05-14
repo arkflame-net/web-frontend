@@ -11,7 +11,7 @@ export default class SidebarUserElement extends React.Component {
           <div className="user-card">
             <img
               className="user-render"
-              src="https://crafatar.com/renders/body/67733759e7c44b36aba7f7d58e1af9d6?overlay=1"
+              src={`https://minotar.net/armor/bust/${user.unwrappedUser.username}/100.png`}
               alt="Skin del usuario"
             />
             <ul className="user-data">
