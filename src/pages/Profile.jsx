@@ -36,7 +36,7 @@ export default class Profile extends React.Component {
             <img
               className="user-body"
               alt="Usuario"
-              src="https://crafatar.com/renders/body/67733759e7c44b36aba7f7d58e1af9d6?overlay=1"
+              src="https://minotar.net/armor/body/Grdx/500.png"
             />
             <div
               className="user-body"
