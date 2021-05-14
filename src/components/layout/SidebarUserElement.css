@@ -33,17 +33,17 @@
 }
 
 .admin {
-  background: #ff4842
+  background: #ff4842 !important
 }
 
 .mod {
-  background: #ff8833
+  background: #ff8833 !important
 }
 
 .helper {
-  background: #198595
+  background: #198595 !important
 }
 
 .owner {
-  background: #af1616
+  background: #af1616 !important
 }
