@@ -1,4 +1,5 @@
 import Container from "../components/layout/Container";
+import SummaryTrio from "../components/layout/SummaryTrio";
 import "./Profile.css";
 import React from "react";
 
@@ -45,6 +46,16 @@ export default class Profile extends React.Component {
             </div>
           </div>
           <div className="container-row">
+            <Container
+              id={"stats"}
+              header={["Gerar > ", <a href="#stats">Estadísticas</a>]}
+            >
+              <SummaryTrio
+                left={{ title: "SkyWars" }}
+                middle={{ title: "ArenaPvP" }}
+                right={{ title: "HCS" }}
+              />
+            </Container>
             <Container
               id={"info"}
               header={["Gerar > ", <a href="#info">Información del jugador</a>]}
