@@ -4,7 +4,7 @@ import { QueryRenderer } from 'react-relay';
 import { ProductModal, openModal } from "../components/gui/productmodal";
 import { fetchProductsByCategoryQuery, fetchCategoryByShrugQuery } from "../graphql";
 
-function LoadingSkeleton () {
+function LoadingSkeleton() {
     return (
         <div className="grid-list">
             <Product />
@@ -17,40 +17,45 @@ function LoadingSkeleton () {
     )
 }
 
-function ProductsQuery ({environment, category}) {
+function ProductsQuery({ environment, category }) {
     return (
         <QueryRenderer
             environment={environment}
             query={fetchProductsByCategoryQuery}
-            variables={{category}}
+            variables={{ category }}
             render={({ error, props }) => {
                 if (error) {
-                    return <div>{ error.message }</div>
+                    return <div>{error.message}</div>
                 }
 
                 if (!props) {
-                    return <LoadingSkeleton/>
+                    return <LoadingSkeleton />
                 }
 
                 const products = props.fetchProductsByCategory;
-                const productList = []
 
-                for (const product of products) {
-                    productList.push(
-                        <Product
-                            onClick={() => { openModal(product) }}
-                            {...product}
-                        />
-                    )
+                if (products.length > 0) {
+                    const productList = []
+
+                    for (const product of products) {
+                        productList.push(
+                            <Product
+                                onClick={() => { openModal(product) }}
+                                {...product}
+                            />
+                        )
+                    }
+
+                    return <React.Fragment>{productList}</React.Fragment>
+                } else {
+                    return <React.Fragment><div>No hay productos</div></React.Fragment>;
                 }
-
-                return <React.Fragment>{ productList }</React.Fragment>
             }}
         />
     );
 }
 
-function CategoryQuery ({environment}) {
+function CategoryQuery({ environment }) {
     const path = window.location.pathname;
     const shrug = path.split("/")[path.split("/").length - 1];
 
@@ -58,14 +63,14 @@ function CategoryQuery ({environment}) {
         <QueryRenderer
             environment={environment}
             query={fetchCategoryByShrugQuery}
-            variables={{shrug}}
-            render={({error, props}) => {
+            variables={{ shrug }}
+            render={({ error, props }) => {
                 if (error) {
-                    return <div>{ error.message }</div>
+                    return <div>{error.message}</div>
                 }
 
                 if (!props) {
-                    return <LoadingSkeleton/>
+                    return <LoadingSkeleton />
                 }
 
                 const category = props.fetchCategoryByShrug;
@@ -73,27 +78,27 @@ function CategoryQuery ({environment}) {
                     return <div>Category doesn't exist</div>
                 } else {
                     const id = category._id;
-                    return <ProductsQuery environment={environment} category={id}/>
+                    return <ProductsQuery environment={environment} category={id} />
                 }
             }}
         />
     )
 }
 
-export default function Category (props) {
+export default function Category(props) {
     const testCategory = {
         name: "Product Name",
         brief: "A compact summary about product benefits. This is just a placeholder.",
         description: "And this is the loooooooooooooooooooooooong Markdown description, IDK.",
         price: 12.25,
-        image:"/assets/products/default.jpg"
+        image: "/assets/products/default.jpg"
     }
 
     return (
         <div>
-            <ProductModal/>
+            <ProductModal {...props} />
             <CategoryQuery {...props} />
-            <Product {...testCategory} onClick={() => { openModal(testCategory) }}/>
+            <Product {...testCategory} onClick={() => { openModal(testCategory) }} />
         </div>
     )
 }
