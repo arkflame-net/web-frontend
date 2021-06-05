@@ -25,6 +25,10 @@ export default class Basket {
         return items;
     }
 
+    getItemAmount(id) {
+        return this.basket[id] ? this.basket[id] : 0
+    }
+
     getItemCount () {
         let count = 0;
 

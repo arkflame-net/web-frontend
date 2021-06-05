@@ -85,20 +85,25 @@ function CategoryQuery({ environment }) {
     )
 }
 
-export default function Category(props) {
-    const testCategory = {
-        name: "Product Name",
-        brief: "A compact summary about product benefits. This is just a placeholder.",
-        description: "And this is the loooooooooooooooooooooooong Markdown description, IDK.",
-        price: 12.25,
-        image: "/assets/products/default.jpg"
-    }
+export default class Category extends React.Component {
+    render() {
+        const {basket} = this.props
+        console.log(basket)
+        const testCategory = {
+            id: 1,
+            name: "Product Name",
+            brief: "A compact summary about product benefits. This is just a placeholder.",
+            description: "And this is the loooooooooooooooooooooooong Markdown description, IDK.",
+            price: 12.25,
+            image: "/assets/products/default.jpg"
+        }
 
-    return (
-        <div>
-            <ProductModal {...props} />
-            <CategoryQuery {...props} />
-            <Product {...testCategory} onClick={() => { openModal(testCategory) }} />
-        </div>
-    )
+        return (
+            <div>
+                <ProductModal {...this.props} />
+                <CategoryQuery {...this.props} />
+                <Product {...testCategory} onClick={() => { openModal(testCategory) }} />
+            </div>
+        )
+    }
 }

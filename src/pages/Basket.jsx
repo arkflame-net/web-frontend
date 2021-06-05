@@ -6,35 +6,35 @@ import {
     Stack,
     SimpleGrid,
 } from "@chakra-ui/react";
+import { FiTrash2 } from 'react-icons/fi'
+import Container from '../components/layout/Container'
+import { Link } from 'react-router-dom'
+import './Basket.css'
 
 var basketTotal;
 var updateBasketTotal;
 
-function BasketItem({ name, price, category, quantity, id }) {
-    return (
-        <Flex direction={{ base: "row", sm: "column" }} bg="#424853" color="#fff">
-            <SimpleGrid spacingY={3} columns={{ base: 1, sm: 6 }} w="full" py={2} px={10} fontWeight="hairline">
-                <span>{name}</span>
-                <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">${price}</chakra.span>
-                <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{category}</chakra.span>
-                <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{quantity}</chakra.span>
-                <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{quantity * price}</chakra.span>
-                <span>
-                    <Button variant="solid" style={{ "display": "inline-block", "margin": "1px 5px" }} colorScheme="red" size="sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                        </svg>
-                    </Button>
-                    <Button variant="solid" style={{ "display": "inline-block", "margin": "1px 5px" }} colorScheme="orange" size="sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                        </svg>
-                    </Button>
-                </span>
-            </SimpleGrid>
-        </Flex>
-    );
+export class BasketItem extends React.Component {
+    render() {
+        const { basket, item } = this.props
+        return (
+            <Flex direction={{ base: "row", sm: "column" }} bg="#424853" color="#fff">
+                <SimpleGrid spacingY={3} columns={{ base: 1, sm: 6 }} w="full" py={3} px={10} fontWeight="hairline">
+                    <span>{item.name}</span>
+                    <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{item.price}</chakra.span>
+                    <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{item.category}</chakra.span>
+                    <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{basket.getItemAmount(item.id)}</chakra.span>
+                    <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{basket.getItemAmount(item.id) * item.price}</chakra.span>
+                    <span>
+                        <Button onClick={(e) => {e.preventDefault(); basket.removeItem(item.id, 1)}}
+                        variant="solid" style={{ "display": "inline-block", "margin": "1px 5px" }} colorScheme="red" size="sm">
+                            <FiTrash2 />
+                        </Button>
+                    </span>
+                </SimpleGrid>
+            </Flex>
+        );
+    }
 }
 
 export function BasketFooter(props) {
@@ -49,6 +49,8 @@ export function BasketFooter(props) {
         px={{ base: 2, sm: 10 }}
         fontSize="sm"
         fontWeight="hairline"
+        borderRadius="0px 0px 10px 10px"
+        textAlign="left"
     >
         <span>Subtotal: {props.subtotal}</span>
     </SimpleGrid>
@@ -67,6 +69,7 @@ export function BasketHeader(props) {
         px={{ base: 2, sm: 10 }}
         fontSize="sm"
         fontWeight="hairline"
+        borderRadius="10px 10px 0px 0px"
     >
         <span>Nombre</span>
         <span>Precio</span>
@@ -78,43 +81,76 @@ export function BasketHeader(props) {
     );
 }
 
-export default function Basket(props) {
+export default class Basket extends React.Component {
 
-    [basketTotal, updateBasketTotal] = React.useState(0);
-
-    let basketItems = [];
-
-    if (props) {
-        let basket = props.basket;
-        let items = basket.getItems();
-
-        if (items.length > 0) {
-            for (let item of items) {
-                basketItems.push(<BasketItem {...item} />);
-            }
-
-            basket.getTotalPrice().then((val)=>{
-                updateBasketTotal(val);
-            })
-        } else {
-            basketItems.push(<div>No hay items en la basket</div>);
-        }
-    } else {
-        basketItems.push(<div>Cargando...</div>);
+    constructor(props) {
+        super(props)
+        this.state = {items: null}
     }
 
-    return (
-        <Stack
-            direction={{ base: "column" }}
-            w="full"
-            bg="#3b414c"
-            shadow="lg"
-        >
-            <BasketHeader />
+    componentDidMount() {
+        
+    }
 
-            {basketItems}
+    renderItems(basket) {
+        if(basket) {
+            let items = basket.getItems()
+            if(items.length > 0) {
+                basket.getTotalPrice().then((val)=>{
+                    updateBasketTotal(val);
+                })
 
-            <BasketFooter subtotal={basketTotal ? basketTotal : 0} />
-        </Stack>
-    );
+                return (
+                    <div>
+                        {
+                            items.map((item, key) => (
+                                <BasketItem basket={basket} key={key} item={item} />
+                            ))
+                        }
+                    </div>
+                )
+            }
+            else return (
+                <>
+                    <BasketItem basket={basket} key={"key"} item={{name: "Culo 1", id: "321312", price: 1000.1, category: "?"}} />
+                    <BasketItem basket={basket} key={"key"} item={{name: "Culo 2", id: "321312", price: 1000.1, category: "?"}} />
+                    <BasketItem basket={basket} key={"key"} item={{name: "Culo 3", id: "321312", price: 1000.1, category: "?"}} />
+                </>
+            )
+        } else return <div>Cargando...</div>
+    }
+
+    componentDidUpdate() {
+        const {basket} = this.props
+        return (
+            <div>
+                <Container
+                    style={{textAlign: "center"}}
+                    id={"Carrito"}
+                    header={[<Link to="/">{"Tienda"}</Link>, " > Carrito "]}
+                >
+                    <BasketHeader />
+                    {this.renderItems(basket)}
+                    <BasketFooter subtotal={basketTotal ? basketTotal : 0} />
+                </Container>
+            </div>
+        )
+    }
+
+    render() {
+        const {basket} = this.props
+        return (
+            <div>
+                <Container
+                    style={{textAlign: "center"}}
+                    id={"Carrito"}
+                    header={[<Link to="/">{"Tienda"}</Link>, " > Carrito "]}
+                >
+                    <BasketHeader />
+                    {this.renderItems(basket)}
+                    <BasketFooter subtotal={basketTotal ? basketTotal : 0} />
+                </Container>
+            </div>
+        )
+    }
 }
