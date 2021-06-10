@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "../components/layout/Container";
 import { Link } from 'react-router-dom'
-import { confirmPayment } from '../services/purchaseService'
 import {
     chakra,
     Flex,
