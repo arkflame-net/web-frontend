@@ -16,7 +16,7 @@ var updateBasketTotal;
 
 export class BasketItem extends React.Component {
     render() {
-        const { basket, item } = this.props
+        const { basket, item, parent } = this.props
         return (
             <Flex style={{borderBottom: "3px solid #313742"}} direction={{ base: "row", sm: "column" }} bg="#424853" color="#fff">
                 <SimpleGrid spacingY={3} columns={{ base: 1, sm: 6 }} w="full" py={3} px={10} fontWeight="hairline">
@@ -26,7 +26,7 @@ export class BasketItem extends React.Component {
                     <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{basket.getItemAmount(item.id)}</chakra.span>
                     <chakra.span textOverflow="ellipsis" overflow="hidden" whiteSpace="nowrap">{basket.getItemAmount(item.id) * item.price}</chakra.span>
                     <span>
-                        <Button onClick={(e) => {e.preventDefault(); basket.removeItem(item.id, 1)}}
+                        <Button onClick={(e) => {e.preventDefault(); parent.removeItem(item.id)}}
                         variant="solid" style={{ "display": "inline-block", "margin": "1px 5px" }} colorScheme="red" size="sm">
                             <FiTrash2 />
                         </Button>
@@ -91,12 +91,20 @@ export default class Basket extends React.Component {
     }
 
     componentDidMount() {
-        
+        const {basket} = this.props
+
+        if(basket) this.setState({items: basket.getItems()})
+    }
+
+    removeItem(id) {
+        const {basket} = this.props
+        basket.removeItem(id, 1)
+        this.setState({items: basket.getItems()})
     }
 
     renderItems(basket) {
-        if(basket) {
-            let items = basket.getItems()
+        if(this.state.items) {
+            let items = this.state.items
             if(items.length > 0) {
                 basket.getTotalPrice().then((val)=>{
                     updateBasketTotal(val);
@@ -106,7 +114,7 @@ export default class Basket extends React.Component {
                     <div>
                         {
                             items.map((item, key) => (
-                                <BasketItem basket={basket} key={key} item={item} />
+                                <BasketItem parent={this} basket={basket} key={key} item={item} />
                             ))
                         }
                     </div>
