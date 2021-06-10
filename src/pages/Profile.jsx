@@ -62,6 +62,7 @@ export default class Profile extends React.Component {
             </Container>
             <Container
               id={"info"}
+              style={{marginLeft: "20px", paddingBottom: "20px"}}
               header={[
                 this.state.reqName,
                 " > ",
