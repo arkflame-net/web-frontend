@@ -52,8 +52,9 @@ export function BasketFooter(props) {
         borderRadius="0px 0px 10px 10px"
         justifyContent="space-between"
     >
-        <span style={{textAlign: "left", fontWeight: "bold", fontSize: "18px"}}>Subtotal: ${props.subtotal}</span>
-        <Link to="/store/checkout" style={{width: "100%"}}><Button style={{background: "rgb(255, 196, 77)", color: "#000", width: "100%"}}>Terminar compra</Button></Link>
+        <span style={{textAlign: "right", fontWeight: "bold", fontSize: "18px"}}>Subtotal: ${props.subtotal}</span>
+        <Link to="/store" style={{width: "100%"}}><Button style={{background: "#3edb00", color: "#000", width: "100%"}}>Seguir comprando</Button></Link>
+        <Link to="/store/checkout" style={{width: "100%"}}><Button disabled={props.basket.getItems().length <= 0} style={{background: "rgb(255, 196, 77)", color: "#000", width: "100%"}}>Terminar compra</Button></Link>
     </SimpleGrid>
     );
 }
@@ -112,11 +113,7 @@ export default class Basket extends React.Component {
                 )
             }
             else return (
-                <>
-                    <BasketItem basket={basket} key={"key"} item={{name: "Culo 1", id: "321312", price: 1000.1, category: "?"}} />
-                    <BasketItem basket={basket} key={"key"} item={{name: "Culo 2", id: "654654", price: 1000.1, category: "?"}} />
-                    <BasketItem basket={basket} key={"key"} item={{name: "Culo 3", id: "987987", price: 1000.1, category: "?"}} />
-                </>
+                <p style={{padding: "20px 0px"}}><span>No hay ningún item en el carrito.</span></p>
             )
         } else return <div>Cargando...</div>
     }
@@ -132,7 +129,27 @@ export default class Basket extends React.Component {
                 >
                     <BasketHeader />
                     {this.renderItems(basket)}
-                    <BasketFooter subtotal={basketTotal ? basketTotal : 0} />
+                    <BasketFooter {...this.props} subtotal={basketTotal ? basketTotal : 0} />
+                </Container>
+                <Container
+                    style={{marginLeft: "30px", marginRight: "30px"}}
+                    id={"cart"}
+                    header={[<Link to="/store">{"Tienda"}</Link>, " > Cupones"]}
+                >
+                    <span style={{textAlign: "right", fontSize: "20px"}}>¿Tienes un cupón?</span>
+                    <form className="login-form" style={{width: "100%", marginBottom: "0px"}}>
+                        <p><input id="coupon" type="text" placeholder={"Ejemplo: " + '"CUP0NF4CH3R0"'} style={{width: "100%"}} /></p>
+                        <p>
+                            <input type="submit" value="Canjear"
+                            style={{
+                                fontWeight: "bold",
+                                width: "100%",
+                                cursor: "pointer",
+                                background: "#ffc44d",
+                                color: "#000000"
+                            }} />
+                        </p>
+                    </form>
                 </Container>
             </div>
         )
