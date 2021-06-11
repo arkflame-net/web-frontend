@@ -1,5 +1,6 @@
 import Container from "../components/layout/Container";
 import SummaryTrio from "../components/layout/SummaryTrio";
+import Comment from '../components/layout/Comment'
 import "./Profile.css";
 import React from "react";
 
@@ -79,7 +80,8 @@ export default class Profile extends React.Component {
                 <a href="#comments">Comentarios</a>,
               ]}
             >
-              No hay comentarios
+              <Comment author={{name: "LinsaFTW", picture: "https://minotar.net/helm/LinsaFTW/50.png"}} message="algoritmo" />
+              <Comment author={{name: "Jotr1", picture: "https://minotar.net/helm/Jotr1/50.png"}} message="ruido de magia" />
             </Container>
           </div>
         </div>
