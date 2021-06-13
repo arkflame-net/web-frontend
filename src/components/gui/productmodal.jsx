@@ -21,7 +21,7 @@ export function openModal (product) {
 export function ProductModal (props) {
     const disclosure = useDisclosure();
     [currentProduct, updateProduct] = React.useState({});
-    //basket = props.basket;
+    let basket = props.basket;
     isOpen = disclosure.isOpen;
     onOpen = disclosure.onOpen;
     onClose = disclosure.onClose;
@@ -42,10 +42,10 @@ export function ProductModal (props) {
               {currentProduct.description}
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
+              <Button variant="ghost" mr={3} onClick={onClose}>
                 Cerrar
               </Button>
-              <Button variant="ghost" onClick={() => { props.basket.addItem(currentProduct); onClose(); }}>Comprar</Button>
+              <Button colorScheme="blue" onClick={() => { basket.addItem(currentProduct.id, 1); onClose(); }}>Comprar</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

@@ -5,6 +5,7 @@ import Route from './components/utils/SmartRoute';
 // Pages
 import Basket from "./pages/Basket.jsx";
 import Category from "./pages/Category.jsx";
+import Checkout from "./pages/Checkout";
 import Community from "./pages/Community.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login";
@@ -39,6 +40,12 @@ export default function Router (props) {
                 {...props}
                 path="/store/category"
                 Component={Category}
+            />
+
+            <Route
+                {...props}
+                path="/store/checkout"
+                Component={Checkout}
             />
 
             <Route
