@@ -42,10 +42,10 @@ export function ProductModal (props) {
               {currentProduct.description}
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
+              <Button variant="ghost" mr={3} onClick={onClose}>
                 Cerrar
               </Button>
-              <Button variant="ghost" onClick={() => { basket.addItem(currentProduct.id, 1); onClose(); }}>Comprar</Button>
+              <Button colorScheme="blue" onClick={() => { basket.addItem(currentProduct.id, 1); onClose(); }}>Comprar</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
