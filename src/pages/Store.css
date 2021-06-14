@@ -1,0 +1,8 @@
+h1, h3, ul {
+    margin-block-start: 5px;
+    margin-block-end: 2px;
+}
+
+h1 {
+    font-size: 24px;
+}
