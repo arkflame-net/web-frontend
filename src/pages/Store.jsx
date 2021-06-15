@@ -2,9 +2,9 @@ import React from "react";
 import Container from '../components/layout/Container'
 import { Link } from 'react-router-dom'
 import SummaryFullWide from "../components/layout/SummaryFullWide";
+import SummaryFullMedium from "../components/layout/SummaryFullMedium";
 
 import './Store.css'
-import SummaryFullMedium from "../components/layout/SummaryFullMedium";
 
 export default class Store extends React.Component {
     render() {
@@ -16,6 +16,7 @@ export default class Store extends React.Component {
                         <SummaryFullWide
                             title="¡Nuevos prefixes!"
                             subtitle="Implementamos nuevos prefixes, ¡héchales un ojo!"
+                            image="https://cdn.discordapp.com/attachments/749177906869174323/854379887259156490/unknown.png"
                         />
                     </Link>
                 </div>
