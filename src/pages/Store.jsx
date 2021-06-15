@@ -15,7 +15,7 @@ export default class Store extends React.Component {
                     <Link to="/store/prefixes" style={{textAlign: "center"}}>
                         <SummaryFullWide
                             title="¡Nuevos prefixes!"
-                            subtitle="Implementamos nuevos prefixes, ¡héchales un ojo!"
+                            subtitle="Implementamos nuevos prefixes, ¡échales un ojo!"
                             image="https://cdn.discordapp.com/attachments/749177906869174323/854379887259156490/unknown.png"
                         />
                     </Link>
