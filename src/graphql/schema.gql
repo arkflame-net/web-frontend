@@ -102,11 +102,15 @@ type PurchaseItem {
 type Query {
   currentUser: User!
   fetchAllCategories: [Category!]!
+  fetchAllProducts: [Product!]!
   fetchAllPurchases: [Purchase!]!
   fetchAllRoles: [Role!]!
   fetchCategoryByID(id: String!): Category!
   fetchCategoryByShrug(shrug: String!): Category!
+  fetchManyProductsByID(ids: [String!]!): [Product!]!
+  fetchProductById(id: String!): [Product!]!
   fetchProductsByCategory(category: String!): [Product!]!
+  fetchProductsById(id: String!): [Product!]!
   fetchPurchaseByID(id: String!): Purchase!
   fetchPurchaseItemByID(id: String!): PurchaseItem!
   fetchRecentlyPendingPurchases: [Purchase!]!

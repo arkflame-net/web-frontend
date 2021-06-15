@@ -13,6 +13,8 @@ import _fetchCategoryByShrugQuery from "./types/fetchCategoryByShrugQuery";
 import _fetchProductsByCategoryQuery from "./types/fetchProductsByCategoryQuery";
 import _fetchPurchaseByIDQuery from "./types/fetchPurchaseByIDQuery";
 import _fetchRecentlyPurchasesQuery from "./types/fetchRecentlyPurchasesQuery";
+import _fetchAllProductsQuery from "./types/fetchAllProductsQuery";
+import _fetchManyProductsByIDQuery from "./types/fetchManyProductsByIDQuery";
 
 export const addRoleToUserMutation = _addRoleToUserMutation;
 export const confirmPaymentMutation = _confirmPaymentMutation;
@@ -29,3 +31,5 @@ export const fetchCategoryByShrugQuery = _fetchCategoryByShrugQuery;
 export const fetchProductsByCategoryQuery = _fetchProductsByCategoryQuery;
 export const fetchPurchaseByIDQuery = _fetchPurchaseByIDQuery;
 export const fetchRecentlyPurchasesQuery = _fetchRecentlyPurchasesQuery;
+export const fetchAllProductsQuery = _fetchAllProductsQuery;
+export const fetchManyProductsByIDQuery = _fetchManyProductsByIDQuery;
