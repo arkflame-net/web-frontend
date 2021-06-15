@@ -5,7 +5,7 @@ import { createPurchaseMutation } from "../graphql";
 
 const environment = initEnvironment();
 
-export const confirmPayment  = (username, method, items) => {
+export const createPurchase  = (username, method, items) => {
     return new Promise((resolve, reject) => {
         commitMutation(environment, {
             mutation: createPurchaseMutation,
