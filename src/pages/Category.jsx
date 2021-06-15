@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "../components/layout/product";
+import Container from '../components/layout/Container'
 import { QueryRenderer } from 'react-relay';
 import { ProductModal, openModal } from "../components/gui/productmodal";
 import { fetchProductsByCategoryQuery, fetchCategoryByShrugQuery } from "../graphql";
@@ -46,9 +47,21 @@ function ProductsQuery({ environment, category }) {
                         )
                     }
 
-                    return <React.Fragment>{productList}</React.Fragment>
+                    return <Container
+                            id={"category"}
+                            header={[<a href="/">{"Tienda"}</a>, " > " + category]}
+                        >
+                    {productList}</Container>
                 } else {
-                    return <React.Fragment><div>No hay productos</div></React.Fragment>;
+                    return <Container
+                            style={{textAlign: "center", margin: "10px", paddingBottom: "20px"}}
+                            id={"category"}
+                            header={[<a href="/">{"Tienda"}</a>, " > " + category]}
+                        >
+                            <div style={{borderRadius: "10px", padding: "20px", background: "#313742"}}>
+                                No hay productos en la categoría seleccionada.
+                            </div>
+                    </Container>
                 }
             }}
         />
@@ -88,7 +101,6 @@ function CategoryQuery({ environment }) {
 export default class Category extends React.Component {
     render() {
         const {basket} = this.props
-        console.log(basket)
 
         return (
             <div>
