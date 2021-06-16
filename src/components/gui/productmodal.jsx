@@ -45,7 +45,7 @@ export function ProductModal (props) {
               <Button variant="ghost" mr={3} onClick={onClose}>
                 Cerrar
               </Button>
-              <Button colorScheme="blue" onClick={() => { basket.addItem(currentProduct.id, 1); onClose(); }}>Comprar</Button>
+              <Button colorScheme="blue" onClick={() => { basket.addItem(currentProduct._id, 1); onClose(); }}>Comprar</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
