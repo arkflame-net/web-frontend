@@ -1,5 +1,3 @@
-import { calculateBasketPrice } from "../services/basketService";
-
 export default class Basket {
     constructor () {
         const raw = localStorage.getItem("basket");
@@ -38,10 +36,6 @@ export default class Basket {
         }
 
         return count;
-    }
-
-    async getTotalPrice () {
-        return await calculateBasketPrice(this.getItems());
     }
 
     removeItem (id, amount) {
