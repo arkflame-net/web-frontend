@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import './Basket.css'
 import { fetchAllProductsQuery } from "../graphql";
 import { QueryRenderer } from "react-relay";
+import { CheckoutModal, openModal } from "../components/gui/checkoutmodal";
 
 var basketTotal;
 
@@ -61,7 +62,11 @@ export function BasketFooter(props) {
     >
         <span style={{textAlign: "right", fontWeight: "bold", fontSize: "18px"}}>Subtotal: ${subtotal}</span>
         <Link to="/store" style={{width: "100%"}}><Button style={{background: "#3edb00", color: "#000", width: "100%"}}>Seguir comprando</Button></Link>
-        <Link to="/store/checkout" style={{width: "100%"}}><Button disabled={props.basket.getItems().length <= 0} style={{background: "rgb(255, 196, 77)", color: "#000", width: "100%"}}>Terminar compra</Button></Link>
+        <Button
+            disabled={props.basket.getItems().length <= 0}
+            style={{background: "rgb(255, 196, 77)", color: "#000", width: "100%"}}
+            onClick={() => { openModal() }}
+        >Terminar compra</Button>
     </SimpleGrid>
     );
 }
@@ -123,7 +128,9 @@ export default class Basket extends React.Component {
                 )
             }
             else return (
-                <p style={{padding: "20px 0px"}}><span>No hay ningún item en el carrito.</span></p>
+                <div style={{padding: "20px", background: "#313742"}}>
+                    No hay items en el carrito.
+                </div>
             )
         } else return <div>Cargando...</div>
     }
@@ -140,9 +147,17 @@ export default class Basket extends React.Component {
     
                     if (!props) {
                         return (
-                            <>
-                            {"Cargando..."}
-                            </>
+                            <Container
+                                style={{textAlign: "center"}}
+                                id={"cart"}
+                                header={[<Link to="/">{"Tienda"}</Link>, " > Carrito "]}
+                            >
+                                <BasketHeader />
+                                <div style={{padding: "20px", background: "#313742"}}>
+                                    Cargando...
+                                </div>
+                                
+                            </Container>
                         )
                     }
     
@@ -190,6 +205,7 @@ export default class Basket extends React.Component {
                     </p>
                 </form>
             </Container>
+            <CheckoutModal {...this.props} />
             </>
         )
     }
