@@ -30,7 +30,13 @@ function ProductsQuery({ environment, category }) {
                 }
 
                 if (!props) {
-                    return <LoadingSkeleton />
+                    return <Container
+                            style={{textAlign: "center", margin: "10px", paddingBottom: "20px"}}
+                            id={"category"}
+                            header={[<a href="/">{"Tienda"}</a>, " > " + category]}
+                        >
+                            <LoadingSkeleton />
+                    </Container>
                 }
 
                 const products = props.fetchProductsByCategory;
@@ -83,7 +89,13 @@ function CategoryQuery({ environment }) {
                 }
 
                 if (!props) {
-                    return <LoadingSkeleton />
+                    return <Container
+                            style={{textAlign: "center", margin: "10px", paddingBottom: "20px"}}
+                            id={"category"}
+                            header={[<a href="/">{"Tienda"}</a>, " > " + "Cargando..."]}
+                        >
+                            <LoadingSkeleton />
+                    </Container>
                 }
 
                 const category = props.fetchCategoryByShrug;
