@@ -31,7 +31,7 @@ function ProductsQuery({ environment, category }) {
 
                 if (!props) {
                     return <Container
-                            style={{textAlign: "center", margin: "10px", paddingBottom: "20px"}}
+                            style={{margin: "10px", paddingBottom: "20px"}}
                             id={"category"}
                             header={[<a href="/">{"Tienda"}</a>, " > " + category]}
                         >
@@ -60,7 +60,7 @@ function ProductsQuery({ environment, category }) {
                     {productList}</Container>
                 } else {
                     return <Container
-                            style={{textAlign: "center", margin: "10px", paddingBottom: "20px"}}
+                            style={{margin: "10px", paddingBottom: "20px"}}
                             id={"category"}
                             header={[<a href="/">{"Tienda"}</a>, " > " + category]}
                         >
@@ -90,7 +90,7 @@ function CategoryQuery({ environment }) {
 
                 if (!props) {
                     return <Container
-                            style={{textAlign: "center", margin: "10px", paddingBottom: "20px"}}
+                            style={{margin: "10px", paddingBottom: "20px"}}
                             id={"category"}
                             header={[<a href="/">{"Tienda"}</a>, " > " + "Cargando..."]}
                         >
