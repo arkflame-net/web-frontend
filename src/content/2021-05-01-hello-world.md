@@ -4,7 +4,7 @@ title: 👋 ¡Hola mundo!
 author: Gerar
 date: 2021-05-01 22:00:00
 tags: servidor, web
-banner: https://cdn.discordapp.com/splashes/287770195441876992/9a9f0388cf201c69487d933dffd69890.jpg?size=2048
+banner: https://cdn.discordapp.com/attachments/749177926590791690/856730557413326848/2021-06-21_23.57.43.png
 ---
 
 Bienvenidos al blog de ArkFlame. Acá se publicarán toda clase de actualizaciones respecto al **desarrollo del servidor**, así como **novedades de la comunidad**.
