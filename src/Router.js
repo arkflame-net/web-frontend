@@ -13,6 +13,7 @@ import NewsPost from './pages/NewsPost.jsx'
 import Register from "./pages/Register";
 import Rules from "./pages/Rules";
 import Store from "./pages/Store";
+import { TestPage } from "./pages/TestPage";
 
 export default function Router (props) {
     return (
@@ -81,6 +82,13 @@ export default function Router (props) {
                 exact
                 path="/store"
                 Component={Store}
+            />
+
+            <Route
+                {...props}
+                exact
+                path="/test"
+                Component={TestPage}
             />
         </Fragment>
     )
