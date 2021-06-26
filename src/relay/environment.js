@@ -26,7 +26,7 @@ async function fetchQuery(operation, variables = {}, cacheConfig) {
         return fromCache;
     }
 
-    return fetch('http://localhost:4000/graphql', {
+    return fetch('https://api.arkflame.com/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
