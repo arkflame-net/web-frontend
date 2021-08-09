@@ -92,7 +92,7 @@ function CategoryQuery({ environment }) {
                     return <Container
                             style={{margin: "10px", paddingBottom: "20px"}}
                             id={"category"}
-                            header={[<a href="/">{"Tienda"}</a>, " > " + "Cargando..."]}
+                            header={[<a href="/">{"Tienda"}</a>, " > Cargando..."]}
                         >
                             <LoadingSkeleton />
                     </Container>
@@ -112,7 +112,7 @@ function CategoryQuery({ environment }) {
 
 export default class Category extends React.Component {
     render() {
-        const {basket} = this.props
+        //const {basket} = this.props
 
         return (
             <div>
