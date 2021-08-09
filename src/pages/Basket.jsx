@@ -3,7 +3,6 @@ import {
     chakra,
     Flex,
     Button,
-    Stack,
     SimpleGrid,
 } from "@chakra-ui/react";
 import { FiTrash2 } from 'react-icons/fi'
@@ -13,8 +12,6 @@ import './Basket.css'
 import { fetchAllProductsQuery } from "../graphql";
 import { QueryRenderer } from "react-relay";
 import { CheckoutModal, openModal } from "../components/gui/checkoutmodal";
-
-var basketTotal;
 
 export class BasketItem extends React.Component {
     render() {
@@ -42,7 +39,7 @@ export class BasketItem extends React.Component {
 export function BasketFooter(props) {
     let subtotal = 0
     props.basket.getItems().forEach(basketItem => {
-        let itemMetadata = props.metadata.filter(storeItem => storeItem._id == basketItem.id)[0]
+        let itemMetadata = props.metadata.filter(storeItem => storeItem._id === basketItem.id)[0]
         subtotal = subtotal + (itemMetadata.price * basketItem.amount)
     })
 
@@ -121,7 +118,7 @@ export default class Basket extends React.Component {
                     <div>
                         {
                             items.map((item, key) => (
-                                <BasketItem parent={this} metadata={metadata.filter(i => i._id == item.id)[0]} basket={basket} key={key} item={item} />
+                                <BasketItem parent={this} metadata={metadata.filter(i => i._id === item.id)[0]} basket={basket} key={key} item={item} />
                             ))
                         }
                     </div>
@@ -192,7 +189,7 @@ export default class Basket extends React.Component {
             >
                 <span style={{textAlign: "right", fontSize: "20px"}}>¿Tienes un cupón?</span>
                 <form className="login-form" style={{width: "100%", marginBottom: "0px"}}>
-                    <p><input id="coupon" type="text" placeholder={"Ejemplo: " + '"CUP0NF4CH3R0"'} style={{width: "100%"}} /></p>
+                    <p><input id="coupon" type="text" placeholder={'Ejemplo: "CUP0NF4CH3R0"'} style={{width: "100%"}} /></p>
                     <p>
                         <input type="submit" value="Canjear"
                         style={{
