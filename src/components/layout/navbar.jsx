@@ -61,17 +61,30 @@ function NavItem({ href, children }) {
     (href !== "/" && currentPath.startsWith(href)) || currentPath === href;
   const className = isCurrent ? styles["item-selected"] : styles["item"];
 
-  return (
-    <Link
-      onClick={() => {
-        updateCurrentPath(href);
-      }}
-      to={href}
-      className={className}
-    >
-      <span>{children}</span>
-    </Link>
-  );
+  if (href.startsWith("https://") || href.startsWith("http://")) {
+    return (
+      <Link
+        onClick={() => {
+          window.open(href, "_blank");
+        }}
+        className={className}
+      >
+        <span>{children}</span>
+      </Link>
+    );
+  } else {
+    return (
+      <Link
+        onClick={() => {
+          updateCurrentPath(href);
+        }}
+        to={href}
+        className={className}
+      >
+        <span>{children}</span>
+      </Link>
+    );
+  }
 }
 
 function NavItemDropdown({ href, dropdown, children, hamburger }) {
@@ -114,11 +127,59 @@ export default function Navbar({ user, environment, basket }) {
           <NavItem href="/">Inicio</NavItem>
           <NavItem href="/community">Comunidad</NavItem>
           <NavItem href="/rules">Reglas</NavItem>
+          <NavItem href="https://tienda.arkflame.com/">Tienda</NavItem>
           <NavItemDropdown
-            href="/store"
-            dropdown={<StoreDropdown environment={environment} />}
+            href="/vote"
+            dropdown={
+              <React.Fragment>
+                <a
+                  target="_blank"
+                  href="https://www.40servidoresmc.es/arkflame-network-votar"
+                  rel="noreferrer"
+                  className={styles["item"]}
+                >
+                  <span>40ServidoresMC</span>
+                </a>
+
+                <a
+                  target="_blank"
+                  href="https://namemc.com/server/play.arkflame.com"
+                  rel="noreferrer"
+                  className={styles["item"]}
+                >
+                  <span>NameMC</span>
+                </a>
+
+                <a
+                  target="_blank"
+                  href="https://minecraftservers.org/vote/420760/"
+                  rel="noreferrer"
+                  className={styles["item"]}
+                >
+                  <span>MinecraftServers</span>
+                </a>
+
+                <a
+                  target="_blank"
+                  href="https://serverlist.games/en/vote/451"
+                  rel="noreferrer"
+                  className={styles["item"]}
+                >
+                  <span>Serverlist</span>
+                </a>
+
+                <a
+                  target="_blank"
+                  href="https://minecraft-mp.com/server/150873/vote/"
+                  rel="noreferrer"
+                  className={styles["item"]}
+                >
+                  <span>Minecraft-MP</span>
+                </a>
+              </React.Fragment>
+            }
           >
-            Tienda
+            Votar
           </NavItemDropdown>
         </div>
 
