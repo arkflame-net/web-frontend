@@ -184,7 +184,7 @@ export default function Navbar({ user, environment, basket }) {
         </div>
 
         <div className={styles["item-list-right"]}>
-          <StoreNavIcons amount={basket.getItemCount()} href="/store/basket" />
+          {/* <StoreNavIcons amount={basket.getItemCount()} href="/store/basket" /> */}
           <Link to="/login">
             <Button
               className={styles["login-button"]}
