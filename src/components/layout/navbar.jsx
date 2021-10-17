@@ -132,50 +132,25 @@ export default function Navbar({ user, environment, basket }) {
             href="/vote"
             dropdown={
               <React.Fragment>
-                <a
-                  target="_blank"
-                  href="https://www.40servidoresmc.es/arkflame-network-votar"
-                  rel="noreferrer"
-                  className={styles["item"]}
-                >
-                  <span>40ServidoresMC</span>
-                </a>
+                <NavItem href="https://www.40servidoresmc.es/arkflame-network-votar">
+                  40ServidoresMC
+                </NavItem>
 
-                <a
-                  target="_blank"
-                  href="https://namemc.com/server/play.arkflame.com"
-                  rel="noreferrer"
-                  className={styles["item"]}
-                >
-                  <span>NameMC</span>
-                </a>
+                <NavItem href="https://namemc.com/server/play.arkflame.com">
+                  NameMC
+                </NavItem>
 
-                <a
-                  target="_blank"
-                  href="https://minecraftservers.org/vote/420760/"
-                  rel="noreferrer"
-                  className={styles["item"]}
-                >
-                  <span>MinecraftServers</span>
-                </a>
+                <NavItem href="https://minecraftservers.org/vote/420760/">
+                  MinecraftServers
+                </NavItem>
 
-                <a
-                  target="_blank"
-                  href="https://serverlist.games/en/vote/451"
-                  rel="noreferrer"
-                  className={styles["item"]}
-                >
-                  <span>Serverlist</span>
-                </a>
+                <NavItem href="https://serverlist.games/en/vote/451">
+                  Serverlist
+                </NavItem>
 
-                <a
-                  target="_blank"
-                  href="https://minecraft-mp.com/server/150873/vote/"
-                  rel="noreferrer"
-                  className={styles["item"]}
-                >
-                  <span>Minecraft-MP</span>
-                </a>
+                <NavItem href="https://minecraft-mp.com/server/150873/vote/">
+                  Minecraft-MP
+                </NavItem>
               </React.Fragment>
             }
           >
