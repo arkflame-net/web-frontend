@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import NewsPost from './pages/NewsPost.jsx'
 import Register from "./pages/Register";
 import Rules from "./pages/Rules";
+import Discord from "./pages/Discord";
 
 export default function Router (props) {
     return (
@@ -66,6 +67,13 @@ export default function Router (props) {
                 exact
                 path="/register"
                 Component={Register}
+            />
+
+            <Route
+                {...props}
+                exact
+                path="/discord"
+                Component={Discord}
             />
         </Fragment>
     )
