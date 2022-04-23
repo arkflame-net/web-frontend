@@ -102,12 +102,7 @@ export default class Rules extends React.Component {
                         </p>
 
                         <p className="rule-item">
-                            <b>1.13</b> Esta prohibido el mal uso de canales en nuestro Discord. <br />
-                            <span className="rule-level rl-muy-baja">(Gravedad: Muy Baja Tipo: Mute)</span>
-                        </p>
-
-                        <p className="rule-item">
-                            <b>1.14</b> Esta prohibido impersonar a otros usuarios sin su permiso. <br />
+                            <b>1.13</b> Esta prohibido impersonar a otros usuarios sin su permiso. <br />
                             <span className="rule-level rl-muy-baja">(Gravedad: Muy Baja Tipo: Mute)</span>
                         </p>
                     </div>
