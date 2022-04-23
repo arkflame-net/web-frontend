@@ -59,6 +59,13 @@ export default function Router (props) {
             <Route
                 {...props}
                 exact
+                path="/reglas"
+                Component={Rules}
+            />
+
+            <Route
+                {...props}
+                exact
                 path="/login"
                 Component={Login}
             />
