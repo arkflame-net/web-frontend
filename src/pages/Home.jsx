@@ -19,6 +19,7 @@ export default class Home extends React.Component {
     };
   }
 
+  /*
   async componentDidMount() {
     const posts = await Promise.all(
       postFiles.map((file) => fetch(file.default).then((res) => res.text()))
@@ -26,6 +27,7 @@ export default class Home extends React.Component {
 
     this.setState((state) => ({ ...state, posts }));
   }
+  */
 
   render() {
     if (this.state)
