@@ -42,7 +42,8 @@ export default class Home extends React.Component {
             id={"news"}
             header={[" Inicio > ", <a href="#news">{"Noticias"}</a>]}
           >
-            {this.state.posts.map((post, key) => (
+  {/*
+  {this.state.posts.map((post, key) => (
               <Link to={"/news/" + parseMD(post).metadata.id}>
                 <SummaryFullWide
                   title={parseMD(post).metadata.title}
@@ -50,7 +51,7 @@ export default class Home extends React.Component {
                   image={parseMD(post).metadata.banner}
                 />
               </Link>
-            ))}
+            ))}*/}
           </Container>
         </div>
       );
