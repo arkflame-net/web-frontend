@@ -5,10 +5,13 @@ import parseMD from "parse-md";
 import Container from "../components/layout/Container";
 import SummaryFullMedium from "../components/layout/SummaryFullMedium";
 
+
+/*
 const importAll = (r) => r.keys().map(r);
 const postFiles = importAll(require.context("../content/", true, /\.md$/))
   .sort()
   .reverse();
+*/
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -30,7 +33,6 @@ export default class Home extends React.Component {
   */
 
   render() {
-    if (this.state)
       return (
         <div>
           <Link to="/community">
@@ -47,7 +49,6 @@ export default class Home extends React.Component {
           </Container>
         </div>
       );
-    else return <div style={{ color: "white" }}>Cargando...</div>;
   }
 }
 
